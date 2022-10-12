@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { Chart } from "react-google-charts";
+
+export const data = [
+  ["Task", "Hours per Day"],
+  ["Work", 10],
+  ["Eat", 1],
+  ["Commute", 2],
+  ["Watch TV", 2],
+  ["Sleep", 8],
+];
+
+export const options = {
+  title: "My Daily Activities",
+};
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Круговая диаграмма</h1>
+      <Chart
+        chartType="PieChart"
+        data={data}
+        options={options}
+        width="100%"
+        height="400px"
+        legendToggle
+      />
+
     </div>
   );
 }
